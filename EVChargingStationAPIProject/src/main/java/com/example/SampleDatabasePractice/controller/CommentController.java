@@ -22,7 +22,7 @@ public class CommentController {
        return commentService.getAllComment();
     }
     @PostMapping("saveComment")
-    public ResponseEntity<Message> saveComment(@RequestParam String Comment){
+    public ResponseEntity<Message> saveComment(@RequestBody String Comment){
         Comment comment = StringToComment.Convert(Comment);
         Message message = commentService.saveComment(comment);
         return new ResponseEntity<>(message, HttpStatus.ACCEPTED);
