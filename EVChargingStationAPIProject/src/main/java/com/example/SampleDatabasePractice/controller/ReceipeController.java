@@ -20,7 +20,7 @@ public class ReceipeController {
       return receipeService.getAllReceipe();
     }
     @PostMapping("saveReceipe")
-    public ResponseEntity<Message> saveReceipe(@RequestParam String Receipe){
+    public ResponseEntity<Message> saveReceipe(@RequestBody String Receipe){
         Receipe receipe = StringToReceipe.Convert(Receipe);
         receipeService.saveReceipe(receipe);
         return new ResponseEntity<>(new Message("Receipe saved"), HttpStatus.CREATED);
